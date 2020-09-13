@@ -16,19 +16,21 @@ public class Topic_00_Template {
 		driver = new FirefoxDriver();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
-		driver.get("http://demo.guru99.com/v4/");
 	}
 
 	@Test
-	public void TC_01_ValidateCurrentUrl() {
+	public void TC_01() {
 	}
+	
 
 	@Test
-	public void TC_02_ValidatePageTitle() {
+	public void TC_02() {
 	}
+	
 
 	@Test
-	public void TC_03_LoginFormDisplayed() {
+	public void TC_03() {
+		
 	}
 
 	@AfterClass
