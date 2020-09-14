@@ -4,6 +4,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -36,130 +37,199 @@ public class Topic_06_Browser_WebElement {
 	}
 
 	@Test
-	public void TC_01_isDisplayed() {
-		if(driver.findElement(emailTextboxBy).isDisplayed()) {
-			System.out.println("Element is displayed with: " + emailTextboxBy);
-			driver.findElement(emailTextboxBy).sendKeys("Automation Testing");
-		}else {
-			System.out.println("Element is not displayed with: " + emailTextboxBy);
+	public void TC_01_isDisplayed() throws InterruptedException {
+//		if(driver.findElement(emailTextboxBy).isDisplayed()) {
+//			System.out.println("Element is displayed with: " + emailTextboxBy);
+//			driver.findElement(emailTextboxBy).sendKeys("Automation Testing");
+//		}else {
+//			System.out.println("Element is not displayed with: " + emailTextboxBy);
+//		}
+//		
+//		if(driver.findElement(educationTextboxBy).isDisplayed()) {
+//			System.out.println("Element is displayed with: " + educationTextboxBy);
+//			driver.findElement(educationTextboxBy).sendKeys("Automation Testing");
+//		}else {
+//			System.out.println("Element is not displayed with: " + educationTextboxBy);
+//		}
+//		
+//		if(driver.findElement(ageUnderRadioBy).isDisplayed()) {
+//			System.out.println("Element is displayed with: " + ageUnderRadioBy);
+//			driver.findElement(ageUnderRadioBy).click();
+//		}else {
+//			System.out.println("Element is not displayed with: " + ageUnderRadioBy);
+//		}
+		if(_isElementDisplayed(emailTextboxBy)) {
+			_senKeyToElement(emailTextboxBy, "Automation testing");
 		}
-		
-		if(driver.findElement(educationTextboxBy).isDisplayed()) {
-			System.out.println("Element is displayed with: " + educationTextboxBy);
-			driver.findElement(educationTextboxBy).sendKeys("Automation Testing");
-		}else {
-			System.out.println("Element is not displayed with: " + educationTextboxBy);
+		if(_isElementDisplayed(educationTextboxBy)) {
+			_senKeyToElement(educationTextboxBy, "Automation testing");
 		}
-		
-		if(driver.findElement(ageUnderRadioBy).isDisplayed()) {
-			System.out.println("Element is displayed with: " + ageUnderRadioBy);
-			driver.findElement(ageUnderRadioBy).click();
-		}else {
-			System.out.println("Element is not displayed with: " + ageUnderRadioBy);
-		}
+		if(_isElementDisplayed(ageUnderRadioBy)){
+				_clickElement(ageUnderRadioBy);
+			}
+		Thread.sleep(5000);
 	}
 
 	@Test
 	public void TC_02_isEnabled() {
 		driver.navigate().refresh();
-		if(driver.findElement(emailTextboxBy).isEnabled()) {
-			System.out.println("Element is enabled with: " + emailTextboxBy);
-		}else {
-			System.out.println("Element is disabled with: " + emailTextboxBy);
-		}
-		if(driver.findElement(educationTextboxBy).isEnabled()) {
-			System.out.println("Element is enabled with: " + educationTextboxBy);
-		}else {
-			System.out.println("Element is disabled with: " + educationTextboxBy);
-		}
-		if(driver.findElement(ageUnderRadioBy).isEnabled()) {
-			System.out.println("Element is enabled with: " + ageUnderRadioBy);
-		}else {
-			System.out.println("Element is disabled with: " + ageUnderRadioBy);
-		}
-		if(driver.findElement(jobRole01DropdownBy).isEnabled()) {
-			System.out.println("Element is enabled with: " + jobRole01DropdownBy);
-				}else {
-			System.out.println("Element is disabled with: " + jobRole01DropdownBy);
-		}
-		if(driver.findElement(jobRole02DropdownBy).isEnabled()) {
-			System.out.println("Element is enabled with: " + jobRole02DropdownBy);
-		}else {
-			System.out.println("Element is disabled with: " + jobRole02DropdownBy);
-		}
-		if(driver.findElement(developmentCheckboxBy).isEnabled()) {
-			System.out.println("Element is enabled with: " + developmentCheckboxBy);
-		}else {
-			System.out.println("Element is disabled with: " + developmentCheckboxBy);
-		}
-		if(driver.findElement(slider01By).isEnabled()) {
-			System.out.println("Element is enabled with: " + slider01By);
-		}else {
-			System.out.println("Element is disabled with: " + slider01By);
-		}
+//		if(driver.findElement(emailTextboxBy).isEnabled()) {
+//			System.out.println("Element is enabled with: " + emailTextboxBy);
+//		}else {
+//			System.out.println("Element is disabled with: " + emailTextboxBy);
+//		}
+//		if(driver.findElement(educationTextboxBy).isEnabled()) {
+//			System.out.println("Element is enabled with: " + educationTextboxBy);
+//		}else {
+//			System.out.println("Element is disabled with: " + educationTextboxBy);
+//		}
+//		if(driver.findElement(ageUnderRadioBy).isEnabled()) {
+//			System.out.println("Element is enabled with: " + ageUnderRadioBy);
+//		}else {
+//			System.out.println("Element is disabled with: " + ageUnderRadioBy);
+//		}
+//		if(driver.findElement(jobRole01DropdownBy).isEnabled()) {
+//			System.out.println("Element is enabled with: " + jobRole01DropdownBy);
+//				}else {
+//			System.out.println("Element is disabled with: " + jobRole01DropdownBy);
+//		}
+//		if(driver.findElement(jobRole02DropdownBy).isEnabled()) {
+//			System.out.println("Element is enabled with: " + jobRole02DropdownBy);
+//		}else {
+//			System.out.println("Element is disabled with: " + jobRole02DropdownBy);
+//		}
+//		if(driver.findElement(developmentCheckboxBy).isEnabled()) {
+//			System.out.println("Element is enabled with: " + developmentCheckboxBy);
+//		}else {
+//			System.out.println("Element is disabled with: " + developmentCheckboxBy);
+//		}
+//		if(driver.findElement(slider01By).isEnabled()) {
+//			System.out.println("Element is enabled with: " + slider01By);
+//		}else {
+//			System.out.println("Element is disabled with: " + slider01By);
+//		}
+		if(_isEnabled(emailTextboxBy));
+		if(_isEnabled(ageUnderRadioBy));
+		if(_isEnabled(educationTextboxBy));
+		if(_isEnabled(jobRole01DropdownBy));
+		if(_isEnabled(jobRole02DropdownBy));
+		if(_isEnabled(developmentCheckboxBy));
+		if(_isEnabled(slider01By));
+		if(_isEnabled(passowrdTextboxBy));
+		if(_isEnabled(disabelAgeRadioButtonBy));
+		if(_isEnabled(biographyTextAreaBy));
+		if(_isEnabled(jobRole03DropdownBy));
+		if(_isEnabled(interestsDisabledCheckboxBy));
+		if(_isEnabled(slider02By));
 		
-		driver.navigate().refresh();
-		
-		if(driver.findElement(passowrdTextboxBy).isEnabled()) {
-			System.out.println("Element is enabled with: " + passowrdTextboxBy);
-		}else {
-			System.out.println("Element is disabled with: " + passowrdTextboxBy);
-		}
-		if(driver.findElement(disabelAgeRadioButtonBy).isEnabled()) {
-			System.out.println("Element is enabled with: " +disabelAgeRadioButtonBy);
-		}else {
-			System.out.println("Element is disabled with: " + disabelAgeRadioButtonBy);
-		}
-		if(driver.findElement(biographyTextAreaBy).isEnabled()) {
-			System.out.println("Element is enabled with: " +biographyTextAreaBy);
-		}else {
-			System.out.println("Element is disabled with: " + biographyTextAreaBy);
-		}
-		if(driver.findElement(jobRole03DropdownBy).isEnabled()) {
-			System.out.println("Element is enabled with: " +jobRole03DropdownBy);
-		}else {
-			System.out.println("Element is disabled with: " + jobRole03DropdownBy);
-		}
-		if(driver.findElement(interestsDisabledCheckboxBy).isEnabled()) {
-			System.out.println("Element is enabled with: " +interestsDisabledCheckboxBy);
-		}else {
-			System.out.println("Element is disabled with: " + interestsDisabledCheckboxBy);
-		}
-		if(driver.findElement(slider02By).isEnabled()) {
-			System.out.println("Element is enabled with: " +slider02By);
-		}else {
-			System.out.println("Element is disabled with: " + slider02By);
-		}
+//		driver.navigate().refresh();
+//		
+//		if(driver.findElement(passowrdTextboxBy).isEnabled()) {
+//			System.out.println("Element is enabled with: " + passowrdTextboxBy);
+//		}else {
+//			System.out.println("Element is disabled with: " + passowrdTextboxBy);
+//		}
+//		if(driver.findElement(disabelAgeRadioButtonBy).isEnabled()) {
+//			System.out.println("Element is enabled with: " +disabelAgeRadioButtonBy);
+//		}else {
+//			System.out.println("Element is disabled with: " + disabelAgeRadioButtonBy);
+//		}
+//		if(driver.findElement(biographyTextAreaBy).isEnabled()) {
+//			System.out.println("Element is enabled with: " +biographyTextAreaBy);
+//		}else {
+//			System.out.println("Element is disabled with: " + biographyTextAreaBy);
+//		}
+//		if(driver.findElement(jobRole03DropdownBy).isEnabled()) {
+//			System.out.println("Element is enabled with: " +jobRole03DropdownBy);
+//		}else {
+//			System.out.println("Element is disabled with: " + jobRole03DropdownBy);
+//		}
+//		if(driver.findElement(interestsDisabledCheckboxBy).isEnabled()) {
+//			System.out.println("Element is enabled with: " +interestsDisabledCheckboxBy);
+//		}else {
+//			System.out.println("Element is disabled with: " + interestsDisabledCheckboxBy);
+//		}
+//		if(driver.findElement(slider02By).isEnabled()) {
+//			System.out.println("Element is enabled with: " +slider02By);
+//		}else {
+//			System.out.println("Element is disabled with: " + slider02By);
+//		}
 		
 	}
 
 	@Test
 	public void TC_03_isSelected() throws InterruptedException {
 		driver.navigate().refresh();
-		driver.findElement(ageUnderRadioBy).click();
-		driver.findElement(javaCheckboxBy).click();
-		if(driver.findElement(ageUnderRadioBy).isSelected()) {
-			System.out.println("Element is selected with: " + ageUnderRadioBy);
-		}else {
-			System.out.println("Element is de-selected with: " + ageUnderRadioBy);
-		}
-		if(driver.findElement(javaCheckboxBy).isSelected()) {
-			System.out.println("Element is selected with: " + javaCheckboxBy);
-		}else {
-			System.out.println("Element is de-selected with: " + javaCheckboxBy);
-		}
-		driver.findElement(ageUnderRadioBy).click();
-		driver.findElement(javaCheckboxBy).click();
+//		driver.findElement(ageUnderRadioBy).click();
+//		driver.findElement(javaCheckboxBy).click();
+//		if(driver.findElement(ageUnderRadioBy).isSelected()) {
+//			System.out.println("Element is selected with: " + ageUnderRadioBy);
+//		}else {
+//			System.out.println("Element is de-selected with: " + ageUnderRadioBy);
+//		}
+//		if(driver.findElement(javaCheckboxBy).isSelected()) {
+//			System.out.println("Element is selected with: " + javaCheckboxBy);
+//		}else {
+//			System.out.println("Element is de-selected with: " + javaCheckboxBy);
+//		}
+//		driver.findElement(ageUnderRadioBy).click();
+//		driver.findElement(javaCheckboxBy).click();
+//		
+//		if(driver.findElement(javaCheckboxBy).isSelected()) {
+//			System.out.println("Element is selected with: " + javaCheckboxBy);
+//		}else {
+//			System.out.println("Element is de-selected with: " + javaCheckboxBy);
+//		}
+//		Thread.sleep(10000);
+		_clickElement(ageUnderRadioBy);
+		_clickElement(javaCheckboxBy);
+		if(_isSelected(ageUnderRadioBy));
+		if(_isSelected(javaCheckboxBy));
+		_clickElement(ageUnderRadioBy);
+		_clickElement(javaCheckboxBy);
+		if(_isSelected(ageUnderRadioBy));
+		if(_isSelected(javaCheckboxBy));
+		Thread.sleep(5000);
 		
-		if(driver.findElement(javaCheckboxBy).isSelected()) {
-			System.out.println("Element is selected with: " + javaCheckboxBy);
-		}else {
-			System.out.println("Element is de-selected with: " + javaCheckboxBy);
-		}
-		Thread.sleep(10000);
 	}
-	
-
+	public boolean _isElementDisplayed(By by) {
+		if(driver.findElement(by).isDisplayed()) {
+			System.out.println("Element is displayed with: " + by);
+			return true;
+		}else {
+			System.out.println("Element is not displayed");
+			return false;
+		}
+	}
+	public void _senKeyToElement(By by,String valueText) {
+		WebElement element = driver.findElement(by);
+		element.clear();
+		element.sendKeys(valueText);
+	}
+	public void _clickElement(By by) {
+		WebElement element = driver.findElement(by);
+		element.click();
+	}
+	public boolean _isEnabled(By by) {
+		WebElement element = driver.findElement(by);
+		if(element.isEnabled()) {
+			System.out.println("Element is enabled with: " + by);
+			return true;
+		}else {
+			System.out.println("Element is disabled");
+			return false;
+		}
+	}
+	public boolean _isSelected(By by) {
+		WebElement element = driver.findElement(by);
+		if(element.isSelected()) {
+			System.out.println("Element is selected with: " + by);
+			return true;
+		}else {
+			System.out.println("Element is de-selected");
+			return false;
+		}
+	}
 	@AfterClass
 	public void afterClass() {
 		driver.quit();
