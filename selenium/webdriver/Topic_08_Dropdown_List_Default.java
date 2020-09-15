@@ -100,14 +100,27 @@ public class Topic_08_Dropdown_List_Default {
 		Assert.assertEquals(driver.findElement(By.xpath("//input[@id='FirstName']")).getAttribute("value"), "Than");
 		Assert.assertEquals(driver.findElement(By.xpath("//input[@id='LastName']")).getAttribute("value"), "Tham");
 		
+		
+		
+		
+		
+		
+		
 		Select DateOfBirthDay_2 = new Select(driver.findElement(By.xpath("//select[@name='DateOfBirthDay']")));
 		Assert.assertEquals(DateOfBirthDay_2.getFirstSelectedOption().getText(), "1");
 		
 		Select DateOfBirthMonth_2 = new Select(driver.findElement(By.xpath("//select[@name='DateOfBirthMonth']")));
-		Assert.assertEquals(DateOfBirthMonth_2.getFirstSelectedOption().getText(), "May");
+		Assert.assertEquals(DateOfBirthMonth_2.getFirstSelectedOption().getAttribute("value"), "5");
 		
 		Select DateOfBirthYear_2 = new Select(driver.findElement(By.xpath("//select[@name='DateOfBirthYear']")));
 		Assert.assertEquals(DateOfBirthYear_2.getFirstSelectedOption().getText(), "1980");
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		Assert.assertEquals(driver.findElement(By.xpath("//input[@id='Email']")).getAttribute("value"), emailRegister);
