@@ -113,8 +113,10 @@ public class Topic_12_User_Interactions {
 		driver.get("http://demos.telerik.com/kendo-ui/dragdrop/angular");
 		sleepInSecond(3);
 		WebElement source = driver.findElement(By.cssSelector("#draggable"));
-		WebElement target = driver.findElement(By.cssSelector("#droptarget"));
-		
+		WebElement target = driver.findElement(By.cssSelector("#droptarget"));	
+		WebElement cover = driver.findElement(By.xpath("//div[@class='demo-section k-content']"));
+		jsExecutor.executeScript("arguments[0].scrollIntoView(true);",cover);
+		sleepInSecond(5);
 		action.dragAndDrop(source, target).perform();
 		//action.clickAndHold(source).moveToElement(target).release().perform();
 		sleepInSecond(3);
