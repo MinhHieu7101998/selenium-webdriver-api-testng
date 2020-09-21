@@ -167,7 +167,6 @@ public class Topic_14_Iframe_Window_Tab {
 		
 		
 	}
-	@Test
 	public void TC_04_Window_Tab() {
 		driver.get("http://live.demoguru99.com/index.php/");
 		String parentID = driver.getWindowHandle();
@@ -217,6 +216,7 @@ public class Topic_14_Iframe_Window_Tab {
 			}
 		}
 	}
+	
 	public boolean closeAllWindowsWithoutParent(String parentID) {
 		Set<String> allWindows = driver.getWindowHandles();
 		for(String window : allWindows) {
