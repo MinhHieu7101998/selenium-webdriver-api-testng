@@ -13,7 +13,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.server.browserlaunchers.Sleeper;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -188,6 +187,11 @@ public class Topic_14_Iframe_Window_Tab {
 		alert.accept();
 		sleepInSecond(3);
 		Assert.assertEquals(driver.findElement(By.xpath("//span[text()='The comparison list was cleared.']")).getText(), "The comparison list was cleared.");
+		
+		driver.switchTo().defaultContent();
+		sleepInSecond(3);
+		driver.findElement(By.xpath("//a[@id='uploadFiles-uploadRowResult-downloadLink']")).click();
+		
 		
 	}
 	
