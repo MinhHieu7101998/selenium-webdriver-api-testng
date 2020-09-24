@@ -304,7 +304,7 @@ public class Topic_16_UploadFile {
 		Assert.assertTrue(driver.findElement(By.xpath("//td[text()='"+image_name_02+"']//following-sibling::td[@class]//a[@class='showInfo mr-1']")).isDisplayed());
 		Assert.assertTrue(driver.findElement(By.xpath("//td[text()='"+image_name_03+"']//following-sibling::td[@class]//a[@class='showInfo mr-1']")).isDisplayed());
 	}
-
+	@Test
 	public void TC_08_Upload_File_With_Chrome_And_Robot_Class() throws AWTException {
 		System.setProperty("webdriver.chrome.driver", source_folder + "\\BrowserDriver\\chromedriver.exe");
 		driver = new ChromeDriver();
@@ -317,7 +317,7 @@ public class Topic_16_UploadFile {
 		driver.findElement(By.cssSelector(".fileinput-button")).click();
 		sleepInSecond(3);
 		
-		StringSelection select = new StringSelection(image_01_path);
+		StringSelection select = new StringSelection(image_01_path + "\n" + image_02_path );
 		// Copy to clipboard
 		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(select,null);
 		
@@ -351,7 +351,6 @@ public class Topic_16_UploadFile {
 		Assert.assertTrue(driver.findElement(By.cssSelector("img[src*='"+image_name_01+"']")).isDisplayed());
 		
 	}
-	@Test
 	public void TC_09_Upload_File_With_Firefox_And_Robot_Class() throws AWTException {
 		System.setProperty("webdriver.gecko.driver", source_folder + "\\BrowserDriver\\geckodriver.exe");
 		driver = new FirefoxDriver();
