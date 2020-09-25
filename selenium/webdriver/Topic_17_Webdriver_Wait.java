@@ -1,5 +1,6 @@
 package webdriver;
 	
+import java.time.Duration;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -20,6 +21,8 @@ import org.testng.annotations.Test;
 
 import com.google.common.base.Function;
 import com.google.common.base.Functions;
+
+import net.bytebuddy.implementation.bytecode.Duplication;
 
 public class Topic_17_Webdriver_Wait {
 	WebDriver driver;
@@ -219,16 +222,16 @@ public class Topic_17_Webdriver_Wait {
 		}
 		System.out.println("Time end: " + date() );
 	}
-	
+	@Test
 	public void TC_14_Fluent_Wait() {
 		driver.get("https://automationfc.github.io/fluent-wait/");
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		FluentWait<WebElement> fluentElement;
 		WebElement countdown = driver.findElement(By.xpath("//div[@id='javascript_countdown_time']"));
 		fluentElement = new FluentWait<WebElement>(countdown);
-		fluentElement.withTimeout(15, TimeUnit.SECONDS)
+		fluentElement.withTimeout(Duration.ofSeconds(15))
 			//Tan so moi lan check 0.2s
-			.pollingEvery(200, TimeUnit.MILLISECONDS)
+			.pollingEvery(Duration.ofMillis(200))
 			// Neu gap exception la tim thay, khong thi bo qua
 			.ignoring(NoSuchElementException.class)
 			//Kiem tra dieu kien
@@ -242,7 +245,7 @@ public class Topic_17_Webdriver_Wait {
 				}
 		});
 		
-	}@Test
+	}
 	public void TC_15_Fluent_Wait() {
 		driver.get("http://the-internet.herokuapp.com/dynamic_loading/2");
 		System.out.println("Time start: " + date() );
@@ -274,8 +277,8 @@ public class Topic_17_Webdriver_Wait {
 	public WebElement waitedElement(By locator, int timeout,int interval) {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		FluentWait<WebDriver> wait = new FluentWait<WebDriver>(driver)
-				.withTimeout(timeout, TimeUnit.MILLISECONDS)
-				.pollingEvery(interval,TimeUnit.MILLISECONDS)
+				.withTimeout(Duration.ofSeconds(timeout))
+				.pollingEvery(Duration.ofMillis(interval))
 				.ignoring(NoSuchElementException.class);
 		WebElement element = wait.until(new Function<WebDriver,WebElement>(){
 			public WebElement apply(WebDriver driver) {
@@ -287,8 +290,8 @@ public class Topic_17_Webdriver_Wait {
 	public void waitForElementAndClick(By locator,int timeout,int interval) {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		FluentWait<WebDriver> wait = new FluentWait<WebDriver>(driver)
-				.withTimeout(timeout, TimeUnit.MILLISECONDS)
-				.pollingEvery(interval,TimeUnit.MILLISECONDS)
+				.withTimeout(Duration.ofSeconds(timeout))
+				.pollingEvery(Duration.ofMillis(interval))
 				.ignoring(NoSuchElementException.class);
 		WebElement element = wait.until(new Function<WebDriver,WebElement>(){
 			public WebElement apply(WebDriver driver) {
@@ -301,8 +304,8 @@ public class Topic_17_Webdriver_Wait {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		WebElement element = waitedElement(locator,timeout,interval);
 		FluentWait<WebElement> wait = new FluentWait<WebElement>(element)
-				.withTimeout(timeout, TimeUnit.MILLISECONDS)
-				.pollingEvery(interval,TimeUnit.MILLISECONDS)
+				.withTimeout(Duration.ofSeconds(timeout))
+				.pollingEvery(Duration.ofMillis(interval))
 				.ignoring(NoSuchElementException.class);
 			boolean _isDisplayed =  wait.until(new Function<WebElement,Boolean>(){
 				public Boolean apply(WebElement element) {
