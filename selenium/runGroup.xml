@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Suite" parallel="false">
+  <test name="Test">
+  <groups>
+  	<run>
+  		<include name="mobile"/>
+  	</run>
+  </groups>
+  <packages>
+  	<package name="TestNG"/>
+  </packages>
+    <!-- <classes>
+      <class name="TestNG.Topic_02_Groups"/>
+    </classes> -->
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
